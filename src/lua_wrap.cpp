@@ -1,6 +1,6 @@
 #include "lua_wrap.h"
 
-#pragma comment (lib, "lua51.lib")
+#pragma comment (lib, "lua53.lib")
 
 Lua::Lua() {
 	L = luaL_newstate();
@@ -8,8 +8,8 @@ Lua::Lua() {
 	lua_pcall(L, 0, 0, 0);
 }
 
-void Lua::open(string fileName) {
-	luaL_dofile(L, fileName.c_str());
+int Lua::open(string fileName) {
+	return luaL_dofile(L, fileName.c_str());
 }
 
 /*

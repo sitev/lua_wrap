@@ -16,7 +16,7 @@ class Lua {
 	lua_State *L;
 public:
 	Lua();
-	virtual void open(string fileName);
+	virtual int open(string fileName);
 	template <class FP>
 	void addFunc(string name, FP const fp) {
 		getGlobalNamespace(L).addFunction(name.c_str(), fp);
